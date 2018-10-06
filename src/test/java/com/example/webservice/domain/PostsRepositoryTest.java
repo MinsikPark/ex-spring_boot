@@ -42,6 +42,11 @@ public class PostsRepositoryTest {
         DB가 설치가 안되어있는데 Repository를 사용할 수 있는 이유는, SpringBoot에서의 테스트 코드는 메모리 DB인 H2를 기본적으로 사용하기 때문입니다.
         테스트 코드를 실행하는 시점에 H2 DB를 실행시킵니다.
         테스트가 끝나면 H2 DB도 같이 종료됩니다.
+
+        http://localhost:8080/h2-console를 입력해 확인 가능
+
+        JDBCURL = jdbc:h2:mem:testdb
+
          */
         Posts posts = postsList.get(0);
         assertThat(posts.getTitle(), is("테스트 게시글"));
