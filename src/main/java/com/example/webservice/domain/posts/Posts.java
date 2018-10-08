@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter // 클래스내 모든 필드의 Getter 메소드를 자동 생성
 @Entity // 테이블과 링크될 클래스이다. 언더스코어 네임밍(_)으로 이름을 매칭한다.
         // SalesManager.java >> sales_Manager table
-public class Posts {
+public class Posts extends BaseTimeEntity{
 
     /**
      *

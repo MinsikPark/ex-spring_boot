@@ -7,6 +7,11 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		/**
+		 * 현재 SpringDataJpa 버전에선 LocalDate와 LocalDateTime이 Database 저장시 제대로 전환이 안되는 이슈가 있습니다.
+		 * 이 문제를 SpringDataJpa의 코어 모듈인 Hibernate core 5.2.10부터는 해결되었어서 이 부분을 교체해보겠습니다.
+		 */
+		classpath "io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE"
 	}
 }
 
@@ -18,7 +23,7 @@ apply plugin: 'io.spring.dependency-management'
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
-
+ext['hibernate.version'] = '5.2.11.Final' //추가
 repositories {
 	mavenCentral()
 }
