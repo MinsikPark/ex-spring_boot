@@ -37,4 +37,7 @@ public class WebRestController {
     public void savePosts(@RequestBody PostsSaveRequestDto dto){
         postsRepository.save(dto.toEntity());
     }
+
+
+
 }
