@@ -39,6 +39,11 @@ public class WebRestController {
         postsService.save(dto);
     }
 
+    @GetMapping("test")
+    public String goToTest(){
+        return "test";
+    }
+
 
 
 }
