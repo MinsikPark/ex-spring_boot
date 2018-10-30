@@ -1,7 +1,24 @@
 spring:
+  profiles:
+    active: local # 기본 환경 선택
+
+server:
+  port: 8090
+
+--- # 여길 기준으로 상단은 공통영역, 하단은 각 profile의 설정 영역이다.
+    #
+
+
+spring:
+  profiles: local # 로컬영역에서의 설정값을 아래에 정의한 것이다.
+  datasource:
+    data: classpath:data-h2.sql # 시작할때 실행시킬 script
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+      use-new-id-generator-mappings: false #Spring boot 2.0 부터는 이 설정이 필요하다. https://jojoldu.tistory.com/295 참고
   h2:
     console:
       enabled: true
 
-server:
-  port: 8090

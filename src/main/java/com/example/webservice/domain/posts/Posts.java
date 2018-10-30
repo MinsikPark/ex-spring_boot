@@ -13,6 +13,10 @@ import javax.persistence.*;
         // SalesManager.java >> sales_Manager table
 public class Posts extends BaseTimeEntity{
 
+
+    @Column(length = 500, nullable = false) // 굳이 선언하지 않아도 컬럼이 되나 , 기본값에 변형을 주기 위해서 사용한다 .
+    private String title; // 문자열의 경우 varchar(255)가 기본 옵션이다.
+
     /**
      *
      * 절대로 테이블과 매핑되는 Entity 클래스를 Request/ Response 클래스로 사용해서는 안됩니다.
@@ -31,13 +35,9 @@ public class Posts extends BaseTimeEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY) // PK의 생성규칙,스프링부트 2.0이상에서는 이와 같은 옵션이 필수
     private long id;
 
-    @Column(length = 500, nullable = false) // 굳이 선언하지 않아도 컬럼이 되나 , 기본값에 변형을 주기 위해서 사용한다 .
-                                            // 문자열의 경우 varchar(255)가 기본 옵션이다.
-    private String title;
-
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
-
+    @Column(columnDefinition = "TEXT", nullable = false)
     private String author;
 
     /**

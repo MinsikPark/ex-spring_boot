@@ -4,6 +4,7 @@ import com.example.webservice.Dto.Posts.PostsSaveRequestDto;
 import com.example.webservice.domain.posts.PostsRepository;
 import com.example.webservice.service.PostsService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 public class WebRestController {
 
+    @Autowired
     private PostsService postsService;
 
     @GetMapping("hello")
