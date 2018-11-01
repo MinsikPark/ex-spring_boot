@@ -1,5 +1,6 @@
 package com.example.webservice.service;
 
+import com.example.webservice.Dto.Posts.PostsMainResponseDto;
 import com.example.webservice.Dto.Posts.PostsSaveRequestDto;
 import com.example.webservice.domain.posts.Posts;
 import com.example.webservice.domain.posts.PostsRepository;
@@ -10,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.Arrays;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -43,5 +47,14 @@ public class PostsServiceTest {
         assertThat(posts.getAuthor()).isEqualTo(dto.getAuthor());
         assertThat(posts.getContent()).isEqualTo(dto.getContent());
         assertThat(posts.getTitle()).isEqualTo(dto.getTitle());
+    }
+
+    @Test
+    public void findAllDesc(){
+        List<PostsMainResponseDto> list = postsService.findAllDesc();
+        System.out.println(list.get(0).toString());
+        System.out.println(list.get(1).toString());
+        assertThat(list.get(0).getId() > list.get(1).getId());
+
     }
 }
